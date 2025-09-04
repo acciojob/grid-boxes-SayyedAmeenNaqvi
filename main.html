@@ -1,100 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grid Layout</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 5px;
-      background: white;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
 
-    #grid {
-      display: grid;
-      grid-template-columns: 200px 1fr 1fr 1fr;
-      grid-template-rows: 150px 100px 100px 100px 150px;
-      gap: 10px;
-      /* Adjust total width for demo */
-      max-width: 960px;
-      margin: auto;
-    }
+        .grid-container {
+            display: grid;
+            gap: 5px;
+            /* Defining 5 rows and 4 columns to match the layout */
+            grid-template-rows: 15% 1fr 1fr 1fr 15%;
+            grid-template-columns: 20% 1fr 1fr 1fr;
+            height: 100vh;
+            background-color: #388e3c;
+            padding: 5px;
+            box-sizing: border-box;
+        }
 
-    #grid > div {
-      background-color: #006400; /* dark green */
-      color: white;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 10px;
-      box-sizing: border-box;
-    }
+        .grid-item {
+            background-color: #388e3c;
+            border: 2px solid white;
+            color: white;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    #grid > div:nth-child(1) {
-      grid-column: 1 / span 4;
-      grid-row: 1;
-    }
+        /* Header row, spans all 4 columns */
+        .item-1 {
+            grid-column: 1 / span 4;
+            grid-row: 1;
+        }
 
-    #grid > div:nth-child(2) {
-      grid-column: 1;
-      grid-row: 2 / span 4;
-    }
+        /* Left sidebar, spans rows 2, 3, and 4 */
+        .item-2 {
+            grid-column: 1;
+            grid-row: 2 / span 3;
+        }
 
-    #grid > div:nth-child(3) {
-      grid-column: 2;
-      grid-row: 2;
-    }
+        /* Items in the second row, starting at column 2 */
+        .item-3 {
+            grid-column: 2;
+            grid-row: 2;
+        }
 
-    #grid > div:nth-child(4) {
-      grid-column: 3 / span 2;
-      grid-row: 2;
-    }
+        /* Item 4 spans two columns */
+        .item-4 {
+            grid-column: 3 / span 2;
+            grid-row: 2;
+        }
+        
+        /* Items in the third row, aligned under the previous items */
+        .item-5 {
+            grid-column: 2;
+            grid-row: 3;
+        }
 
-    #grid > div:nth-child(5) {
-      grid-column: 2 / span 2;
-      grid-row: 3;
-    }
+        .item-6 {
+            grid-column: 4;
+            grid-row: 3;
+        }
 
-    #grid > div:nth-child(6) {
-      grid-column: 4;
-      grid-row: 3;
-    }
+        /* Items in the fourth row */
+        .item-7 {
+            grid-column: 2;
+            grid-row: 4;
+        }
 
-    #grid > div:nth-child(7) {
-      grid-column: 2;
-      grid-row: 4;
-    }
+        .item-8 {
+            grid-column: 3;
+            grid-row: 4;
+        }
 
-    #grid > div:nth-child(8) {
-      grid-column: 3;
-      grid-row: 4;
-    }
+        .item-9 {
+            grid-column: 4;
+            grid-row: 4;
+        }
 
-    #grid > div:nth-child(9) {
-      grid-column: 4;
-      grid-row: 4;
-    }
-
-    #grid > div:nth-child(10) {
-      grid-column: 2 / span 3;
-      grid-row: 5;
-    }
-  </style>
+        /* Footer row, spans columns 2, 3, and 4 */
+        .item-10 {
+            grid-column: 2 / span 3;
+            grid-row: 5;
+        }
+    </style>
 </head>
 <body>
-  <div id="grid">
-    <div class="item item1">1</div>
-    <div class="item item2">2</div>
-    <div class="item item3">3</div>
-    <div class="item item4">4</div>
-    <div class="item item5">5</div>
-    <div class="item item6">6</div>
-    <div class="item item7">7</div>
-    <div class="item item8">8</div>
-    <div class="item item9">9</div>
-    <div class="item item10">10</div>
-  </div>
+
+    <div class="grid-container">
+        <div class="grid-item item-1">1</div>
+        <div class="grid-item item-2">2</div>
+        <div class="grid-item item-3">3</div>
+        <div class="grid-item item-4">4</div>
+        <div class="grid-item item-5">5</div>
+        <div class="grid-item item-6">6</div>
+        <div class="grid-item item-7">7</div>
+        <div class="grid-item item-8">8</div>
+        <div class="grid-item item-9">9</div>
+        <div class="grid-item item-10">10</div>
+    </div>
+
 </body>
 </html>
